@@ -5,16 +5,17 @@ package U1ZTb;
         HelloALU myALU <- mkSimpleALU;
         Reg#(int) opa <- mkReg(42);
         Reg#(int) opb <- mkReg(10);
-        Reg#(Bool) Instantiated <- mkReg(False);
-        Reg#(Bool) CalcSet <- mkReg(False);
+        Reg#(Bool) instantiated <- mkReg(False);
+        Reg#(Bool) calcSet <- mkReg(False);
+        Reg#(Bool) checked <- mkReg(False);
 
-        rule instantiate(!Instantiated);
-            Instantiated <= True;
+        rule instantiate(!instantiated);
+            instantiated <= True;
             myALU.setupCalculation(Add, opa, opb);
-            CalcSet <= True;
+            calcSet <= True;
         endrule
-        rule getResult(Instantiated && CalcSet);
-            let result <- 
+        rule getResult(instantiated && calcSet);
+            let result <- myALU.getResult;
             $display("Result: %d");
             checked <= True;
         endrule
