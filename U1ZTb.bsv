@@ -16,7 +16,7 @@ package U1ZTb;
         endrule
         rule getResult(instantiated && calcSet);
             let result <- myALU.getResult;
-            $display("Result: %d");
+            $display("Result: %d", result);
             checked <= True;
         endrule
         rule shutdown (checked);
