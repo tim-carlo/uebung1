@@ -1,5 +1,7 @@
 package U1ZTb;
     import U1Z::*;
+    import Vector::*;
+
     typedef enum{Mul, Div, Add, Sub, And, Or} AluOps deriving (Eq, Bits);
     module mkU1ZTb();
         HelloALU myALU <- mkSimpleALU;
@@ -8,6 +10,12 @@ package U1ZTb;
         Reg#(Bool) instantiated <- mkReg(False);
         Reg#(Bool) calcSet <- mkReg(False);
         Reg#(Bool) checked <- mkReg(False);
+        Vector#(6, Int#(16)) leftVals = newVector;
+        Vector#(6, Int#(16)) rightVals = newVector;
+        Vector#(6, Int#(16)) results = newVector;
+
+        
+
 
         rule instantiate(!instantiated);
             instantiated <= True;
