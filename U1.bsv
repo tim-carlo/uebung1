@@ -11,9 +11,10 @@ package U1;
         rule bLINKRULE(ctrl_on);
             if(led_on) 
                 led_on <= False;
-            else if(!led_on)
+            else if(!led_on) begin
                 led_on <= True;
                 blink_ctr <= blink_ctr + 1;
+            end    
         endrule
         method Bool blink();
             return led_on;
