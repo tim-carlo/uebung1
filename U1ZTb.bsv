@@ -13,8 +13,10 @@ package U1ZTb;
         Vector#(6, Int#(16)) leftVals = newVector;
         Vector#(6, Int#(16)) rightVals = newVector;
         Vector#(6, Int#(16)) results = newVector;
-
         
+        leftVals[0] = fromInteger(10);
+        rightVals[0] = fromInteger(12);
+        results[0] = fromInteger(22);
 
 
         rule instantiate(!instantiated);
